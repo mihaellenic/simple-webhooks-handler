@@ -1,0 +1,30 @@
+{
+    "server_config": {
+        "host": "0.0.0.0",
+        "port": 9000
+    },
+    "github_webhooks": {
+        "api_path": "/github-webhooks",
+        "secret": "secret_key",
+        "actions": [
+            {
+                "action_name": "Sample project action",
+                "repository_full_name": "sample-user/sample-project",
+                "ref": "refs/heads/develop",
+                "event": "push",
+                "command": "echo Hello world GitHub!"
+            }
+        ]
+    },
+    "dockerhub_webhooks": {
+        "api_path": "/dockerhub-webhooks",
+        "actions": [
+            {
+                "action_name": "Sample project docker action",
+                "repo_name": "sample-user/sample-project",
+                "tag": "latest",
+                "command": "echo Hello world DockerHub!"
+            }
+        ]
+    }
+}
