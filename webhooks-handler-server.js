@@ -31,7 +31,7 @@ http
       // parse request data
       var data = JSON.parse(payload);
 
-      console.info('data', data);
+      // console.info('data', data);
       // console.info('request', req);
 
       // handle paths
