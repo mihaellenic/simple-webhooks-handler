@@ -32,17 +32,18 @@ function handleEvent(repo_name, tag) {
 }
 
 function getMatchingActions(repo_name, tag) {
-  var actions = require("../config.json").dockerhub_webhooks.actions
+  var actions = require("../config.json").dockerhub_webhooks.actions;
 
   // TODO: implement more flexible filtering
   // - dynamic attributes matching
-  // - regex values
-  var matched_actions = actions.filter(function (action) {
+  // - regex values : DONE
 
-    return action.repo_name === repo_name && action.tag === tag;
-  })
+    return actions.filter(function (action) {
 
-  return matched_actions;
+      var regex = new RegExp(action.tag);
+
+      return action.repo_name === repo_name && regex.test(tag);
+  });
 }
 
 exports.handleEvent = handleEvent;
